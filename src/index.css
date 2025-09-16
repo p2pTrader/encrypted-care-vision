@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Medical Healthcare Design System - Privacy & Security Focused
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Medical grade background - clean clinical white */
+    --background: 0 0% 98%;
+    --foreground: 210 15% 15%;
+
+    /* Card system - sterile medical interface */
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+
+    /* Popover elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 15%;
+
+    /* Primary - Medical trust blue */
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 100% 65%;
+
+    /* Secondary - Encryption teal */
+    --secondary: 180 40% 85%;
+    --secondary-foreground: 180 100% 15%;
+
+    /* Muted elements */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Accent - Security green for encrypted data */
+    --accent: 150 60% 88%;
+    --accent-foreground: 150 80% 20%;
+
+    /* Healthcare status colors */
+    --success: 150 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 60%;
+    --warning-foreground: 45 100% 15%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input styling */
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 210 100% 45%;
+
+    /* Medical gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secure: linear-gradient(90deg, hsl(var(--primary)), hsl(150 60% 45%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 20% 94%));
+
+    /* Shadows for medical UI depth */
+    --shadow-medical: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-encrypt: 0 0 30px hsl(150 60% 45% / 0.2);
+    --shadow-card: 0 2px 10px -2px hsl(210 15% 15% / 0.08);
+
+    /* Animations */
+    --transition-medical: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode for medical interface - maintaining clinical professionalism */
+    --background: 210 20% 8%;
+    --foreground: 210 15% 92%;
+
+    --card: 210 15% 10%;
+    --card-foreground: 210 15% 92%;
+
+    --popover: 210 15% 10%;
+    --popover-foreground: 210 15% 92%;
+
+    --primary: 210 100% 65%;
+    --primary-foreground: 210 20% 8%;
+    --primary-glow: 210 100% 75%;
+
+    --secondary: 180 25% 20%;
+    --secondary-foreground: 180 60% 85%;
+
+    --muted: 210 15% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 150 30% 25%;
+    --accent-foreground: 150 60% 85%;
+
+    --success: 150 60% 55%;
+    --warning: 45 90% 65%;
+    --destructive: 0 70% 60%;
+
+    --border: 210 15% 18%;
+    --input: 210 15% 18%;
+    --ring: 210 100% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secure: linear-gradient(90deg, hsl(var(--primary)), hsl(150 50% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 15% 12%));
+
+    --shadow-medical: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-encrypt: 0 0 30px hsl(150 50% 55% / 0.25);
+    --shadow-card: 0 2px 10px -2px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 210 15% 10%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-primary: 210 100% 65%;
+    --sidebar-primary-foreground: 210 20% 8%;
+    --sidebar-accent: 210 15% 15%;
+    --sidebar-accent-foreground: 210 15% 85%;
+    --sidebar-border: 210 15% 18%;
+    --sidebar-ring: 210 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
