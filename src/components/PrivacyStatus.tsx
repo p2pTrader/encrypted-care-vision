@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   Activity, 
   Lock, 
@@ -11,6 +13,7 @@ import {
   CheckCircle2,
   AlertTriangle 
 } from "lucide-react";
+import { DetailedPrivacyReport } from './DetailedPrivacyReport';
 
 interface PrivacyMetric {
   label: string;
@@ -20,9 +23,10 @@ interface PrivacyMetric {
 }
 
 export const PrivacyStatus = () => {
+  const [isReportOpen, setIsReportOpen] = useState(false);
+
   const handleViewReport = () => {
-    console.log("Viewing detailed privacy report...");
-    // TODO: Open detailed privacy report modal/page
+    setIsReportOpen(true);
   };
 
   const privacyMetrics: PrivacyMetric[] = [
@@ -125,10 +129,23 @@ export const PrivacyStatus = () => {
           </div>
 
           <div className="pt-4 border-t border-border/50">
-            <Button variant="outline" className="w-full" size="sm" onClick={handleViewReport}>
-              <Eye className="h-4 w-4 mr-2" />
-              View Detailed Privacy Report
-            </Button>
+            <Dialog open={isReportOpen} onOpenChange={setIsReportOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="w-full" size="sm">
+                  <Eye className="h-4 w-4 mr-2" />
+                  View Detailed Privacy Report
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Detailed Privacy Report</DialogTitle>
+                  <DialogDescription>
+                    Comprehensive analysis of your data privacy and security
+                  </DialogDescription>
+                </DialogHeader>
+                <DetailedPrivacyReport />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </CardContent>

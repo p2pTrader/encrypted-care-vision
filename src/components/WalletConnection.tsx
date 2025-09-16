@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Wallet, Activity, CheckCircle, AlertCircle, Plus } from "lucide-react";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useDisconnect } from 'wagmi';
+import { NewRecordModal } from './NewRecordModal';
 
 interface WalletConnectionProps {
   onConnect?: (address: string) => void;
@@ -20,6 +21,11 @@ export const WalletConnection = ({ onConnect }: WalletConnectionProps) => {
 
   const handleDisconnect = () => {
     disconnect();
+  };
+
+  const handleRecordCreated = (recordId: number) => {
+    console.log(`New medical record created with ID: ${recordId}`);
+    // You can add additional logic here, such as refreshing data or showing notifications
   };
 
   return (
@@ -125,15 +131,7 @@ export const WalletConnection = ({ onConnect }: WalletConnectionProps) => {
                             >
                               Account
                             </Button>
-                            <Button 
-                              onClick={() => console.log("Creating new record...")}
-                              variant="medical"
-                              size="sm"
-                              className="flex-1"
-                            >
-                              <Plus className="h-4 w-4 mr-1" />
-                              New Record
-                            </Button>
+                            <NewRecordModal onRecordCreated={handleRecordCreated} />
                           </div>
                         </div>
                       );
@@ -167,15 +165,7 @@ export const WalletConnection = ({ onConnect }: WalletConnectionProps) => {
               >
                 Disconnect Wallet
               </Button>
-              <Button 
-                onClick={() => console.log("Creating new record...")}
-                variant="medical"
-                size="sm"
-                className="flex-1"
-              >
-                <Plus className="h-4 w-4 mr-1" />
-                New Record
-              </Button>
+              <NewRecordModal onRecordCreated={handleRecordCreated} />
             </div>
           </div>
         )}
